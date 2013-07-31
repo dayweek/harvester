@@ -1,0 +1,63 @@
+# jihomoravsky kraj
+@base = "http://www.reality-on-line.cz/nemovitosti/"
+
+#@debug = true
+@list_only = false
+@urls = [
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php', #blansko
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'003',
+			'action'=>'Vyhledej',
+			'count'=>'79'}
+], 
+
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php', #mesto
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'004',
+			'action'=>'Vyhledej',
+			'count'=>'18'}
+], 
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php',#br. venkov
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'005',
+			'action'=>'Vyhledej',
+			'count'=>'16'}
+], 
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php',
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'076',
+			'action'=>'Vyhledej',
+			'count'=>'54'}
+], 
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php',
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'018',
+			'action'=>'Vyhledej',
+			'count'=>'178'}
+], 
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php', #breclav
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'007',
+			'action'=>'Vyhledej',
+			'count'=>'19'}
+], 
+	['http://www.reality-on-line.cz/katalog/prehledzakvyber.php', #vyskov
+		{'kind' => '001',
+			'typ'=>'11',
+			'region'=>'074',
+			'action'=>'Vyhledej',
+			'count'=>'27'}
+], 
+
+]
+
+@detail_url_path = 'table.ramek a.vypis'
+
+@description = "//td[@width='330']//table[1]//tr[6]"
+@phone_paths = ['table.biladetail']

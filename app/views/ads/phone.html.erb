@@ -1,0 +1,31 @@
+<% if @je_realitka %>
+
+  <h3>Je realitka</h3>
+
+<% else %>
+  <h3>Není realitka.</h3>
+  <%= link_to'Insert into Stormm!', stormm_path(@phone), :confirm => "Are you sure?" %>
+<% end %>
+
+
+<h2>Stormm</h2>
+<% 
+  i = 1
+  @stormm_ads.each do |result| %>
+    <h4><%= i %> - <%= result[:status] %></h4>
+    <% result[:history].each do |history| %>
+      <p><%= history[:date] %></p>
+      <p><%= history[:text] %></p>
+    <% end 
+    i = i + 1
+  %>
+<% end %>
+
+<h2>Google</h2>
+
+<% @google_results.each do |result| %>
+  <h3><%= result[:title] %></h3>
+  <p>
+  <%= result[:content] %>
+  </p>
+<% end %>

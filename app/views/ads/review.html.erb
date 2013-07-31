@@ -1,0 +1,39 @@
+Pending: <b><%= @pending_count %></b><br>
+<% if @ad %>
+<%= link_to 'Reviewed and next', next_review_ad_path(@ad) %>
+
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Text:</b>
+  <%= @ad.text %>
+</p>
+
+<p>
+  <b>Url:</b>
+	  <%= link_to nil, @ad.url %>
+</p>
+
+<%= form_tag(phone_path, :method => "get") do %>
+  <%= label_tag(:phone, "Phone:") %>
+  <%= text_field_tag(:phone, @phone) %>
+  <%= submit_tag("Check") %>
+<% end %>
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>
+
+
+<iframe src="<%= @ad.url %>" width="1200" height="1000">
+</iframe>
+
+<% else %>
+	None<br>
+<%= form_tag(phone_path, :method => "get") do %>
+  <%= label_tag(:phone, "Phone:") %>
+  <%= text_field_tag(:phone, @phone) %>
+  <%= submit_tag("Check") %>
+<% end %>
+<%= link_to 'Back', ads_path %>
+<% end %>

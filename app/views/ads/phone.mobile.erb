@@ -1,0 +1,39 @@
+<% if @je_realitka %>
+  <h3>Je realitka</h3>
+<% else %>
+  <h3>Není realitka.</h3>
+  <%= link_to'Insert into Stormm!', stormm_path(@phone), :confirm => "Are you sure?", 'data-role' => :button %>
+<% end %>
+
+<% unless @stormm_ads.empty? %>
+<ul data-role="listview"> 
+<% 
+  @stormm_ads.each do |result| %>
+	  <li>
+	  <h4><%= result[:status] %></h4>
+	  <ul>
+    <% result[:history].each do |history| %>
+	    <li><%= history[:date] %>
+	    <%= history[:text] %><li>
+      </li>
+    <% end  %>
+</ul>
+      </li>
+<% end %>
+</ul>
+<% else %>
+	<h3>Žádné záznamy</h3>
+<%  end %>
+
+<h2>Google</h2>
+
+<ul data-role="listview"> 
+<% @google_results.each do |result| %>
+	  <li>
+  <h3><%= result[:title] %></h3>
+  <p>
+  <%= result[:content] %>
+  </p>
+      </li>
+<% end %>
+</ul>

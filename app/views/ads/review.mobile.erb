@@ -1,0 +1,62 @@
+<div data-role="page" id="foo">
+
+<div data-role="header">
+<h1>Pending: <b><%= @pending_count %></b></h1>
+<% if mobile_device? %>
+	<%= link_to 'Full version',  :mobile => 0,  'data-role' => "button"  %>
+<% else %>
+	<%= link_to 'Mobile version', :mobile => 1,  'data-role' => "button" %>
+<% end %>
+</div><!-- /header -->
+
+<div data-role="content">	
+<% if @ad %>
+<a href="#two" data-role="button">Show ad</a>
+<% end %>
+<% if @ad %>
+	<%= link_to 'Reviewed and next', next_review_ad_path(@ad) %>
+
+	<p id="notice"><%= notice %></p>
+
+
+	<p> <%= @ad.text %></p>
+
+	<p>
+	<b>Url:</b>
+	<%= link_to nil, @ad.url %>
+	</p>
+
+<% else %>
+	<p>None</p>
+<% end %>
+<%= form_tag(phone_path, :method => "get") do %>
+	<div data-role="fieldcontain">
+	<%= label_tag :phone, "Phone:" %>
+	<%= text_field_tag(:phone, @phone) %>
+	</div>
+	<div data-role="fieldcontain">
+	<%= submit_tag("Check") %>
+	</div>
+<% end %>
+
+
+<%= link_to 'All ads', ads_path, "data-role" => "button" %>
+</div><!-- /content -->
+
+</div><!-- /page -->
+
+
+
+<% if @ad %>
+
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="content" data-theme="a">	
+		<p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back</a></p>	
+	<iframe src="<%= @ad.url %>" width="480" height="800">
+	</iframe>
+		
+	</div><!-- /content -->
+	
+</div><!-- /page two -->
+<% end %>

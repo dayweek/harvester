@@ -1,0 +1,12 @@
+# jihomoravsky kraj
+@base = "http://inzerce.zacatek.cz/"
+
+#@debug = true
+@list_only = false
+@urls = [ 'http://inzerce.zacatek.cz/?q=&okres=3&typ=1&hkat=233&kat=236'
+]
+
+@detail_url_path = 'div.item h3 a.title'
+
+@description = "//div[contains(@class, 'popis')]/child::text()[1]"
+@phone_paths = ['div.popis']

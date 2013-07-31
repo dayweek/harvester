@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Server:</b>
+  <%= @ad.server %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @ad.text %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @ad.url %>
+</p>
+
+<p>
+  <b>Review:</b>
+  <%= @ad.review %>
+</p>
+
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>
